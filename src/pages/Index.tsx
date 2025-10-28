@@ -51,15 +51,15 @@ const Index = () => {
     <div className="min-h-screen bg-gray-50 flex">
       <aside className="w-64 bg-white border-r border-gray-200 p-6 space-y-6">
         <div className="space-y-2">
-          <h1 className="text-3xl font-semibold text-slate-600">Falcon AI</h1>
+          <h1 className="text-3xl font-semibold text-slate-700">Falcon AI</h1>
           <p className="text-sm text-gray-600">{getCurrentDate()}</p>
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-[#1A1F2C]">Inclosures</h2>
+          <h2 className="text-lg font-semibold text-slate-600">Inclosures</h2>
           <div className="space-y-3">
             {commodities.map((commodity) => (
-              <div key={commodity.id} className="flex items-center space-x-2">
+              <div key={commodity.id} className="flex items-center space-x-2 bg-gray-600">
                 <Checkbox
                   id={commodity.id}
                   checked={selectedCommodities.includes(commodity.id)}
