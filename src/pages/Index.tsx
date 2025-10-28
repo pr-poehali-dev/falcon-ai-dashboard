@@ -48,36 +48,38 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white py-12 px-4">
-      <div className="max-w-4xl mx-auto space-y-8">
-        <div className="text-center space-y-2">
-          <h1 className="text-5xl tracking-tight px-0 mx-0 my-0 text-slate-600 text-left font-semibold">Falcon AI</h1>
-          <p className="text-lg text-gray-600 text-left">{getCurrentDate()}</p>
+    <div className="min-h-screen bg-white flex">
+      <aside className="w-64 border-r border-gray-200 p-6 space-y-6">
+        <div className="space-y-2">
+          <h1 className="text-3xl font-semibold text-slate-600">Falcon AI</h1>
+          <p className="text-sm text-gray-600">{getCurrentDate()}</p>
         </div>
 
-        <div className="space-y-6">
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-[#1A1F2C]">Inclosures</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {commodities.map((commodity) => (
-                <div key={commodity.id} className="flex items-center space-x-2">
-                  <Checkbox
-                    id={commodity.id}
-                    checked={selectedCommodities.includes(commodity.id)}
-                    onCheckedChange={() => handleCommodityToggle(commodity.id)}
-                    className="border-2 border-gray-300"
-                  />
-                  <label
-                    htmlFor={commodity.id}
-                    className="text-sm font-medium text-gray-700 cursor-pointer select-none"
-                  >
-                    {commodity.label}
-                  </label>
-                </div>
-              ))}
-            </div>
+        <div className="space-y-4">
+          <h2 className="text-lg font-semibold text-[#1A1F2C]">Inclosures</h2>
+          <div className="space-y-3">
+            {commodities.map((commodity) => (
+              <div key={commodity.id} className="flex items-center space-x-2">
+                <Checkbox
+                  id={commodity.id}
+                  checked={selectedCommodities.includes(commodity.id)}
+                  onCheckedChange={() => handleCommodityToggle(commodity.id)}
+                  className="border-2 border-gray-300"
+                />
+                <label
+                  htmlFor={commodity.id}
+                  className="text-sm font-medium text-gray-700 cursor-pointer select-none"
+                >
+                  {commodity.label}
+                </label>
+              </div>
+            ))}
           </div>
+        </div>
+      </aside>
 
+      <main className="flex-1 p-12">
+        <div className="max-w-4xl mx-auto space-y-8">
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold text-[#1A1F2C]">
               FX post, validated insights
@@ -99,72 +101,72 @@ const Index = () => {
               Ask
             </Button>
           </div>
-        </div>
 
-        {showResults && (
-          <Card className="p-8 space-y-6 animate-fade-in border-2 border-gray-100 shadow-lg">
-            <div className="text-center space-y-2">
-              <h3 className="text-2xl font-bold text-[#0EA5E9]">
-                AI Analysis Complete!
-              </h3>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={chartData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="month" stroke="#6b7280" />
-                  <YAxis stroke="#6b7280" />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: 'white',
-                      border: '1px solid #e5e7eb',
-                      borderRadius: '8px',
-                    }}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="value"
-                    stroke="#0EA5E9"
-                    strokeWidth={3}
-                    dot={{ fill: '#0EA5E9', r: 4 }}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-
-            <div className="space-y-3">
-              <h4 className="font-semibold text-lg text-[#1A1F2C]">
-                Analyzed Commodities:
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {selectedCommodities.length > 0 ? (
-                  selectedCommodities.map((id) => {
-                    const commodity = commodities.find((c) => c.id === id);
-                    return (
-                      <span
-                        key={id}
-                        className="px-4 py-2 bg-[#0EA5E9] text-white rounded-full text-sm font-medium"
-                      >
-                        {commodity?.label}
-                      </span>
-                    );
-                  })
-                ) : (
-                  <span className="text-gray-500 italic">No commodities selected</span>
-                )}
+          {showResults && (
+            <Card className="p-8 space-y-6 animate-fade-in border-2 border-gray-100 shadow-lg">
+              <div className="text-center space-y-2">
+                <h3 className="text-2xl font-bold text-[#0EA5E9]">
+                  AI Analysis Complete!
+                </h3>
               </div>
-            </div>
 
-            <div className="border-t-2 border-gray-100 pt-4">
-              <p className="text-sm text-gray-600 text-center">
-                <span className="font-semibold">Data Sources:</span> S&P Global,
-                Bloomberg, Thomson Reuters
-              </p>
-            </div>
-          </Card>
-        )}
-      </div>
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <ResponsiveContainer width="100%" height={300}>
+                  <LineChart data={chartData}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                    <XAxis dataKey="month" stroke="#6b7280" />
+                    <YAxis stroke="#6b7280" />
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: 'white',
+                        border: '1px solid #e5e7eb',
+                        borderRadius: '8px',
+                      }}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="value"
+                      stroke="#0EA5E9"
+                      strokeWidth={3}
+                      dot={{ fill: '#0EA5E9', r: 4 }}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+
+              <div className="space-y-3">
+                <h4 className="font-semibold text-lg text-[#1A1F2C]">
+                  Analyzed Commodities:
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedCommodities.length > 0 ? (
+                    selectedCommodities.map((id) => {
+                      const commodity = commodities.find((c) => c.id === id);
+                      return (
+                        <span
+                          key={id}
+                          className="px-4 py-2 bg-[#0EA5E9] text-white rounded-full text-sm font-medium"
+                        >
+                          {commodity?.label}
+                        </span>
+                      );
+                    })
+                  ) : (
+                    <span className="text-gray-500 italic">No commodities selected</span>
+                  )}
+                </div>
+              </div>
+
+              <div className="border-t-2 border-gray-100 pt-4">
+                <p className="text-sm text-gray-600 text-center">
+                  <span className="font-semibold">Data Sources:</span> S&P Global,
+                  Bloomberg, Thomson Reuters
+                </p>
+              </div>
+            </Card>
+          )}
+        </div>
+      </main>
     </div>
   );
 };
