@@ -99,25 +99,27 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="p-6 space-y-4">
-          <h2 className="text-lg font-semibold text-[#1A1F2C]">Last market updates</h2>
-          <div className="space-y-3">
-            <Card className="p-3 bg-gray-50 border-gray-200">
-              <p className="text-xs text-gray-600">Market placeholder</p>
-            </Card>
-            <Card className="p-3 bg-gray-50 border-gray-200">
-              <p className="text-xs text-gray-600">Market placeholder</p>
-            </Card>
-            <Card className="p-3 bg-gray-50 border-gray-200">
-              <p className="text-xs text-gray-600">Market placeholder</p>
-            </Card>
-          </div>
-        </div>
+
       </aside>
 
       <main className="flex-1 flex">
         <div className="flex-1 p-8 border-r border-gray-200">
           <div className="max-w-4xl mx-auto space-y-6">
+            <div className="space-y-4">
+              <h2 className="text-lg font-semibold text-[#1A1F2C]">Last market updates</h2>
+              <div className="grid grid-cols-3 gap-4">
+                <Card className="p-4 bg-gray-50 border-gray-200">
+                  <p className="text-sm text-gray-600">Market placeholder</p>
+                </Card>
+                <Card className="p-4 bg-gray-50 border-gray-200">
+                  <p className="text-sm text-gray-600">Market placeholder</p>
+                </Card>
+                <Card className="p-4 bg-gray-50 border-gray-200">
+                  <p className="text-sm text-gray-600">Market placeholder</p>
+                </Card>
+              </div>
+            </div>
+
             <div className="space-y-3 pb-6 border-b border-gray-200">
               <h2 className="text-2xl font-semibold text-[#1A1F2C]">
                 Your daily insights
