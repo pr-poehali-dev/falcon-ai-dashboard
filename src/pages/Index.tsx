@@ -57,7 +57,7 @@ const Index = () => {
 
         <div className="space-y-4">
           <h2 className="text-lg font-semibold text-slate-600">Inclosures</h2>
-          <div className="space-y-3">
+          <div className="space-y-3 bg-transparent">
             {commodities.map((commodity) => (
               <div key={commodity.id} className="flex items-center space-x-2 bg-gray-600">
                 <Checkbox
