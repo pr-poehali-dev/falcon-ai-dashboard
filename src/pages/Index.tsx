@@ -51,9 +51,7 @@ const Index = () => {
     <div className="min-h-screen bg-white py-12 px-4">
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="text-center space-y-2">
-          <h1 className="text-5xl font-bold text-[#1A1F2C] tracking-tight">
-            Falcon AI Dashboard
-          </h1>
+          <h1 className="text-5xl tracking-tight px-0 mx-0 my-0 text-slate-600 text-left font-semibold">Falcon AI</h1>
           <p className="text-lg text-gray-600">{getCurrentDate()}</p>
         </div>
 
