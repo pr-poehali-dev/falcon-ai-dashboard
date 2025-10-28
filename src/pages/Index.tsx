@@ -11,7 +11,7 @@ const commodities = [
   { id: 'iron-ore', label: 'Iron ore' },
   { id: 'coal', label: 'Coal' },
   { id: 'freight', label: 'Freight' },
-  { id: 'fick-liner', label: 'Fick-liner' },
+  { id: 'fertilizers', label: 'Fertilizers' },
 ];
 
 const generateChartData = () => {
@@ -48,8 +48,8 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex">
-      <aside className="w-64 border-r border-gray-200 p-6 space-y-6">
+    <div className="min-h-screen bg-gray-50 flex">
+      <aside className="w-64 bg-white border-r border-gray-200 p-6 space-y-6">
         <div className="space-y-2">
           <h1 className="text-3xl font-semibold text-slate-600">Falcon AI</h1>
           <p className="text-sm text-gray-600">{getCurrentDate()}</p>
@@ -75,6 +75,21 @@ const Index = () => {
               </div>
             ))}
           </div>
+
+          <div className="space-y-2 pt-4">
+            <Button
+              variant="outline"
+              className="w-full justify-start text-left font-medium border-2 hover:bg-gray-50"
+            >
+              Request model
+            </Button>
+            <Button
+              variant="outline"
+              className="w-full justify-start text-left font-medium border-2 hover:bg-gray-50"
+            >
+              Request research
+            </Button>
+          </div>
         </div>
       </aside>
 
@@ -82,7 +97,7 @@ const Index = () => {
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold text-[#1A1F2C]">
-              FX post, validated insights
+              Your daily insights
             </h2>
             <Textarea
               placeholder="Enter validated insights..."
